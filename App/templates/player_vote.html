@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="vote-container">
+    <div class="feature-section">
+        <h2>Vote</h2>
+        <div class="feature-info">
+            <h3>Fonctionnalité : {{ feature.name }}</h3>
+            <p>{{ feature.description }}</p>
+        </div>
+        <p><strong>Code de la partie :</strong> {{ code }}</p>
+        <p>Temps restant : <span id="timer"></span></p>
+        <form action="{{ url_for('submit_player_vote') }}" method="post" class="vote-form">
+            <div class="cards-container">
+            {% for c in cartes %}
+                <label class="card-label">
+                    <input type="radio" name="vote" value="{{ c }}" required>
+                    <img src="{{ url_for('static', filename='cards/' ~ c ~ '.svg') }}" alt="{{ c }}" class="card-img">
+                </label>
+            {% endfor %}
+            </div>
+            <button class="btn vote-btn" type="submit">Valider le vote</button>
+        </form>
+    </div>
+
+    <div class="discussion-section">
+        <h3>Discussion</h3>
+        <div id="chat" class="chat-container">
+            {% for msg in chat %}
+                <div class="chat-message">
+                    <strong>{{ msg.player }}:</strong> {{ msg.text }}
+                </div>
+            {% endfor %}
+        </div>
+        <form action="{{ url_for('send_message') }}" method="post" class="chat-form">
+            <div class="chat-input-container">
+                <input type="text" name="message" placeholder="Votre message" required>
+                <button type="submit" class="btn chat-btn">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+const endTime = {{ end_time }};
+const code = "{{ code }}";
+
+function updateTimer() {
+    const now = Math.floor(Date.now() / 1000);
+    const remaining = endTime - now;
+    if (remaining <= 0) {
+        document.getElementById('timer').textContent = "Temps écoulé!";
+    } else {
+        const sec = remaining % 60;
+        const min = Math.floor(remaining / 60);
+        document.getElementById('timer').textContent = `${min}m ${sec}s`;
+    }
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+
+function updateStatus() {
+    fetch('/status?code=' + code)
+        .then(response => response.json())
+        .then(data => {
+            const chatDiv = document.getElementById('chat');
+            chatDiv.innerHTML = '';
+            data.chat.forEach(msg => {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'chat-message';
+                messageDiv.innerHTML = `<strong>${msg.player}:</strong> ${msg.text}`;
+                chatDiv.appendChild(messageDiv);
+            });
+            if (data.finished) {
+                window.location.href = '/party_end?code=' + code;
+            } else if (data.all_voted) {
+                window.location.reload();
+            }
+        })
+        .catch(err => console.error(err));
+}
+setInterval(updateStatus, 5000);
+</script>
+{% endblock %}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Planning Poker</h1>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/configure">Configurer la partie</a>
+            <a href="/join">Rejoindre une partie</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="hero-section">
+            <img src="/static/images/logo.png" alt="Planning Poker Logo" class="logo">
+            <h2>Estimez vos fonctionnalités en équipe</h2>
+            <p>Utilisez le Planning Poker pour obtenir un consensus rapide et efficace sur la difficulté des tâches.</p>
+        </div>
+
+        <div class="action-buttons">
+            <h3>Bienvenue sur Planning Poker</h3>
+            <button onclick="window.location.href='/configure';">Créer une partie</button>
+            <button onclick="window.location.href='/join';">Rejoindre une partie</button>
+            <button onclick="window.location.href='/resume';">Reprendre une partie</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Planning Poker App. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

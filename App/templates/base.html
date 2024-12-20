@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Planning Poker</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Accueil</a>
+            <a href="{{ url_for('configure') }}">Configurer</a>
+            <a href="{{ url_for('join') }}">Rejoindre</a>
+            <a href="{{ url_for('resume') }}">Reprendre</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Planning Poker. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

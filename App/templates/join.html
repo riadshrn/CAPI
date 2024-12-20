@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="join-container">
+    <h2>Rejoindre une Partie</h2>
+    <form action="{{ url_for('join_party') }}" method="post" class="join-form">
+        <div class="form-group">
+            <label for="party_code">Code de la Partie :</label>
+            <input type="text" id="party_code" name="party_code" placeholder="Entrez le code de la partie" required>
+        </div>
+        <div class="form-group">
+            <label for="player_name">Votre Pseudo :</label>
+            <input type="text" id="player_name" name="player_name" placeholder="Entrez votre pseudo" required>
+        </div>
+        <button type="submit" class="btn join-btn">Rejoindre</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="resume-container">
+    <h2>Reprendre une Partie</h2>
+    <form action="{{ url_for('load_state') }}" method="post" class="resume-form">
+        <div class="form-group">
+            <label for="resume_code">Code de la Partie :</label>
+            <input type="text" id="resume_code" name="resume_code" placeholder="Entrez le code de la partie" required>
+        </div>
+        <button type="submit" class="btn resume-btn">Reprendre</button>
+    </form>
+</div>
+{% endblock %}

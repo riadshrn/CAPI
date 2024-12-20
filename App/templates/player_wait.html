@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Attente des autres joueurs...</h2>
+<p>Code de la partie : <strong>{{ code }}</strong></p>
+{% if all_voted %}
+<p>Tous les joueurs ont voté. Veuillez patienter, la page va se mettre à jour...</p>
+{% else %}
+<p>Vous avez voté, mais tous les joueurs n'ont pas encore voté. Veuillez patienter.</p>
+{% endif %}
+
+<script>
+const code = "{{ code }}";
+
+function updateStatus() {
+    window.location.reload();
+}
+
+setInterval(updateStatus, 5000);
+</script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="configure-container">
+    <h2>Configurer une Partie</h2>
+    <form action="{{ url_for('configure') }}" method="post" class="configure-form">
+        <div class="form-group">
+            <label for="mode_de_jeu">Mode de Jeu :</label>
+            <select id="mode_de_jeu" name="mode_de_jeu" required>
+                <option value="unanimite">Unanimité</option>
+                <option value="moyenne">Moyenne</option>
+                <option value="mediane">Médiane</option>
+                <option value="majorite">Majorité</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="nombre_joueurs">Nombre de Joueurs :</label>
+            <input type="number" id="nombre_joueurs" name="nombre_joueurs" placeholder="Entrez le nombre de joueurs" min="2" required>
+        </div>
+        <div class="form-group">
+            <label for="player_0">Votre Pseudo :</label>
+            <input type="text" id="player_0" name="player_0" placeholder="Entrez votre pseudo" required>
+        </div>
+        <button type="submit" class="btn configure-btn">Créer la Partie</button>
+    </form>
+</div>
+{% endblock %}

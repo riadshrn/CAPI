@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="party-end-container">
+    <h2>Partie Terminée</h2>
+    <p>Voici les estimations des fonctionnalités :</p>
+
+    <table class="backlog-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fonctionnalité</th>
+                <th>Difficulté</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feature in backlog %}
+            <tr>
+                <td>{{ feature.id }}</td>
+                <td>{{ feature.name }}</td>
+                <td>{{ feature.estimatedDifficulty or "Non estimée" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="/" class="btn vote-btn">Retour à l'Accueil</a></p>
+</div>
+{% endblock %}

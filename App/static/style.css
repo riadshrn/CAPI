@@ -1,0 +1,501 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(120deg, #e0f7fa, #ffffff);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header */
+header {
+    background: #004d61;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #a7ffeb;
+}
+
+/* Main Container */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* Hero Section */
+.hero-section {
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-section img.logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+.hero-section h2 {
+    font-size: 2rem;
+    color: #004d61;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: slideUp 1.2s ease-in-out;
+}
+
+.action-buttons h3 {
+    font-size: 1.8rem;
+    color: #004d61;
+    margin-bottom: 1rem;
+}
+
+.action-buttons button {
+    background: #00796b;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-buttons button:hover {
+    background: #004d40;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.action-buttons button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background: #004d61;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* Cards Layout */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card-img {
+    max-width: 80px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.vote-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.vote-btn:hover {
+    background-color: #0056b3;
+
+}
+
+/* Chatbox Styles */
+/* Chatbox Styles */
+.chat-container {
+    border: 2px solid #004d61;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #ffffff;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 1rem;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message strong {
+    color: #00796b;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.chat-message.mine {
+    background-color: #dcedc8;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.chat-message.theirs {
+    background-color: #e3f2fd;
+    align-self: flex-start;
+    text-align: left;
+}
+
+/* Chat Input */
+.chat-input-container {
+    display: flex;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-container input[type="text"] {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.chat-input-container input[type="text"]:focus {
+    background-color: #f0f8ff;
+}
+
+.chat-input-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-input-container button:hover {
+    background-color: #0056b3;
+}
+
+.chat-input-container button:active {
+    transform: scale(0.95);
+    background-color: #003f7f;
+}
+
+
+/* Timer */
+#timer {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .action-buttons button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .hero-section img.logo {
+        width: 100px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+/* Containers */
+.resume-container, .join-container, .configure-container {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #004d61;
+    text-align: center;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+input, select {
+    padding: 0.8rem;
+    border: 2px solid #00796b;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 5px rgba(0, 77, 61, 0.5);
+}
+
+/* Buttons */
+button {
+    background: #00796b;
+    color: white;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #004d40;
+}
+/* Party End Styles */
+
+/* General Container */
+.party-end-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(120deg, #ffffff, #e0f7fa);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Section */
+.party-end-container h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #004d61;
+    margin-bottom: 1rem;
+}
+
+.party-end-container p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Backlog Table */
+.backlog-table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.backlog-table thead {
+    background: #004d61;
+    color: white;
+}
+
+.backlog-table thead th {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-bottom: 2px solid #e0f7fa;
+}
+
+.backlog-table tbody td {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1rem;
+    border-bottom: 1px solid #e0f7fa;
+}
+
+.backlog-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.backlog-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Button Section */
+.download-section {
+    margin-top: 2rem;
+}
+
+.download-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.download-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .party-end-container h2 {
+        font-size: 2rem;
+    }
+
+    .backlog-table thead th,
+    .backlog-table tbody td {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .download-btn {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+}

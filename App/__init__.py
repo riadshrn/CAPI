@@ -1,0 +1,1 @@
+from .app import app, BASE_DIR, parties

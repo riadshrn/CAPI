@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Connexion utilisateur",
+    "description": "Permettre à un utilisateur de se connecter",
+    "estimatedDifficulty": null
+  },
+  {
+    "id": 2,
+    "name": "Page d'accueil",
+    "description": "Afficher la page d'accueil avec les actualités",
+    "estimatedDifficulty": null
+  }
+]
